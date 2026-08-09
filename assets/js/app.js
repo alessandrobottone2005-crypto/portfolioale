@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollHeader();
   initThreeJS();
-  initGSAPAnimations();
+  initPreloader();
 });
 
 // Custom Fluid Cursor with Magnetic Properties & Text Reveal
@@ -126,6 +126,69 @@ function initProjectFiltering() {
       });
     });
   });
+}
+
+// Premium moment-of-brand preloader with skip controls per VIBE-CODING-GUIDELINES.md
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  const bar = document.getElementById('preloader-bar');
+  const percentText = document.getElementById('preloader-percent');
+  const skipBtn = document.getElementById('skip-preloader-btn');
+
+  if (!preloader) return;
+
+  let progress = 0;
+  let hasSkipped = false;
+
+  // Accessibility Check: Instant skip if prefers-reduced-motion is true
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    dismissPreloader();
+    return;
+  }
+
+  function dismissPreloader() {
+    if (hasSkipped) return;
+    hasSkipped = true;
+
+    // Smooth transition fade-out
+    preloader.style.opacity = '0';
+    preloader.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      preloader.remove();
+    }, 700);
+
+    // Launch core GSAP animations after preloader clears
+    initGSAPAnimations();
+  }
+
+  // Bind skip button
+  if (skipBtn) {
+    skipBtn.addEventListener('click', dismissPreloader);
+  }
+
+  // Progress simulation loop
+  const interval = setInterval(() => {
+    if (hasSkipped) {
+      clearInterval(interval);
+      return;
+    }
+
+    progress += Math.floor(Math.random() * 12) + 5;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+
+      if (bar) bar.style.width = '100%';
+      if (percentText) percentText.innerText = '100%';
+
+      setTimeout(dismissPreloader, 300);
+    } else {
+      if (bar) bar.style.width = `${progress}%`;
+      if (percentText) percentText.innerText = `${progress}%`;
+    }
+  }, 60);
 }
 
 // Advanced Motion Graphics and Scroll-driven Animations via GSAP & ScrollTrigger
@@ -300,8 +363,8 @@ function initThreeJS() {
   const positions = new Float32Array(particlesCount * 3);
   const colors = new Float32Array(particlesCount * 3);
 
-  // Accent color (Orange rgb: 249, 115, 22) and Muted zinc (161, 161, 170)
-  const orangeColor = new THREE.Color('#f97316');
+  // Accent colors per DESIGN.md and VIBE-CODING-GUIDELINES.md: Electric Indigo (#6366f1) and Muted zinc (#3f3f46)
+  const indigoColor = new THREE.Color('#6366f1');
   const zincColor = new THREE.Color('#3f3f46');
 
   for (let i = 0; i < particlesCount * 3; i += 3) {
@@ -310,8 +373,8 @@ function initThreeJS() {
     positions[i + 1] = (Math.random() - 0.5) * 15;
     positions[i + 2] = (Math.random() - 0.5) * 15;
 
-    // Mix colors randomly
-    const mixedColor = Math.random() > 0.8 ? orangeColor : zincColor;
+    // Mix colors randomly (high density of indigo for immersive glow)
+    const mixedColor = Math.random() > 0.7 ? indigoColor : zincColor;
     colors[i] = mixedColor.r;
     colors[i + 1] = mixedColor.g;
     colors[i + 2] = mixedColor.b;
@@ -334,10 +397,10 @@ function initThreeJS() {
   const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particleSystem);
 
-  // 2. Floating Abstract Geometry (Sleek low-poly torus knot)
+  // 2. Floating Abstract Geometry (Sleek low-poly torus knot in Electric Indigo)
   const geometry = new THREE.TorusKnotGeometry(1.5, 0.4, 100, 16);
   const material = new THREE.MeshBasicMaterial({
-    color: 0xf97316,
+    color: 0x6366f1,
     wireframe: true,
     transparent: true,
     opacity: 0.08
@@ -362,6 +425,12 @@ function initThreeJS() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  });
+
+  // Performance optimization: track tab visibility state
+  let isTabActive = true;
+  document.addEventListener('visibilitychange', () => {
+    isTabActive = !document.hidden;
   });
 
   // Animation Loop
@@ -390,8 +459,10 @@ function initThreeJS() {
     const scrollY = window.scrollY;
     camera.position.y = -scrollY * 0.003;
 
-    // Render
-    renderer.render(scene, camera);
+    // Render only when tab is active (saves CPU/GPU per VIBE-CODING-GUIDELINES.md)
+    if (isTabActive) {
+      renderer.render(scene, camera);
+    }
 
     // Call tick on the next frame
     window.requestAnimationFrame(tick);

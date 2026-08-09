@@ -39,6 +39,28 @@
 </head>
 <body class="bg-[#09090b] text-zinc-100 font-sans selection:bg-orange-500 selection:text-black">
 
+  <!-- PRELOADER SCREEN (VIBE-CODING brand moment) -->
+  <div id="preloader" class="fixed inset-0 bg-[#0a0a0f] z-[11000] flex flex-col items-center justify-center select-none text-white transition-opacity duration-700">
+    <div class="relative space-y-6 flex flex-col items-center max-w-md px-6 text-center">
+      <!-- Animated branding accent -->
+      <div class="font-editorial text-2xl md:text-3xl font-extrabold tracking-tighter">
+        ALESSANDRO BOTTONE<span class="text-indigo-500 animate-pulse">.</span>
+      </div>
+      <!-- Loading bar -->
+      <div class="w-48 h-[2px] bg-zinc-900 rounded-full overflow-hidden relative">
+        <div id="preloader-bar" class="absolute left-0 top-0 h-full w-0 bg-indigo-500 transition-all duration-300"></div>
+      </div>
+      <div class="flex items-center space-x-2 text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">
+        <span>CARICAMENTO ESPERIENZA</span>
+        <span id="preloader-percent">0%</span>
+      </div>
+      <!-- Skip action button for long animation -->
+      <button id="skip-preloader-btn" class="text-[9px] tracking-wider text-zinc-600 hover:text-white underline transition-colors duration-200 uppercase">
+        SALTA INTRO
+      </button>
+    </div>
+  </div>
+
   <!-- Immersive 3D Background Canvas -->
   <canvas id="canvas-3d" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
