@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alessandro Bottone — UI/UX & Visual Designer Portfolio</title>
+  <meta name="description" content="Portfolio interattivo di Alessandro Bottone, UI/UX e Visual Designer specializzato in esperienze digitali raffinate, estetica editoriale e interazioni fluide.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#09090b',
+            accent: '#f97316',
+          },
+          fontFamily: {
+            editorial: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[#09090b] text-zinc-100 font-sans selection:bg-orange-500 selection:text-black">
+
+  <!-- Grain Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor hidden lg:block" aria-hidden="true"></div>
+
+  <!-- Background Grid Lines -->
+  <div class="grid-lines" aria-hidden="true">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+  </div>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="fixed top-0 left-0 w-full z-50 border-b border-zinc-900/80 bg-zinc-950/40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+      <a href="#" class="font-editorial text-lg md:text-xl font-bold tracking-tight text-white focus:outline-none focus:ring-1 focus:ring-orange-500 rounded px-1">
+        ALESSANDRO BOTTONE<span class="text-accent">.</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-12" aria-label="Menu Principale">
+        <a href="#projects" class="nav-link text-sm font-medium tracking-wide text-zinc-400 hover:text-white transition-colors duration-200">LAVORI</a>
+        <a href="#about" class="nav-link text-sm font-medium tracking-wide text-zinc-400 hover:text-white transition-colors duration-200">CHI SONO</a>
+        <a href="#process" class="nav-link text-sm font-medium tracking-wide text-zinc-400 hover:text-white transition-colors duration-200">METODO</a>
+        <a href="#contact" class="nav-link text-sm font-medium tracking-wide text-zinc-400 hover:text-white transition-colors duration-200">CONTATTO</a>
+      </nav>
+
+      <!-- Right Action Indicator -->
+      <div class="hidden md:flex items-center space-x-4">
+        <div class="flex items-center space-x-2 bg-zinc-900/60 border border-zinc-800 px-4 py-1.5 rounded-full">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="text-[11px] font-semibold text-zinc-300 tracking-wider uppercase">DISPONIBILE PER PROGETTI</span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-20 bg-zinc-950 z-40 px-6 py-12 flex flex-col justify-between">
+      <nav class="flex flex-col space-y-8" aria-label="Menu Mobile">
+        <a href="#projects" class="mobile-link font-editorial text-4xl font-bold tracking-tight text-zinc-300 hover:text-white">LAVORI</a>
+        <a href="#about" class="mobile-link font-editorial text-4xl font-bold tracking-tight text-zinc-300 hover:text-white">CHI SONO</a>
+        <a href="#process" class="mobile-link font-editorial text-4xl font-bold tracking-tight text-zinc-300 hover:text-white">METODO</a>
+        <a href="#contact" class="mobile-link font-editorial text-4xl font-bold tracking-tight text-zinc-300 hover:text-white">CONTATTO</a>
+      </nav>
+      <div class="space-y-6">
+        <hr class="border-zinc-800">
+        <div class="flex items-center space-x-3 bg-zinc-900/60 border border-zinc-800 p-4 rounded-xl">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span class="text-xs font-semibold text-zinc-300 uppercase tracking-wider">DISPONIBILE PER NUOVI PROGETTI</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden" aria-label="Presentazione">
+    <div class="absolute right-0 top-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute left-1/3 bottom-10 w-80 h-80 bg-zinc-700/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 space-y-10 max-w-5xl">
+      <!-- Tag/Subheading line -->
+      <div class="flex items-center space-x-4">
+        <span class="h-px w-8 bg-orange-500 inline-block"></span>
+        <h2 class="text-xs md:text-sm font-semibold tracking-widest text-orange-500 uppercase">UI/UX & VISUAL DESIGN</h2>
+      </div>
+
+      <!-- Main Headline (Editorial & Typographic) -->
+      <h1 class="font-editorial text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] text-white">
+        CREO INTERFACCE <span class="text-zinc-600 italic font-medium">uniche</span> CHE RACCONTANO STORIE.
+      </h1>
+
+      <!-- Short Manifesto -->
+      <p class="text-lg md:text-2xl text-zinc-400 max-w-3xl leading-relaxed font-light">
+        Aiuto startup innovative e brand ambiziosi a ridefinire il loro ecosistema digitale attraverso un design d'impatto visivo, flussi intuitivi ed estetica editoriale contemporanea.
+      </p>
+
+      <!-- Hero Call-To-Actions -->
+      <div class="flex flex-wrap items-center gap-6 pt-6">
+        <a href="#projects" class="group relative px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-orange-500/5 hover:shadow-orange-500/20">
+          <span>ESPLORA I PROGETTI</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+        <a href="#contact" class="px-8 py-4 border border-zinc-800 text-zinc-300 hover:border-white hover:text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-300 inline-flex items-center space-x-2">
+          <span>COLLABORIAMO</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 left-6 md:left-12 flex items-center space-x-3 text-zinc-500 text-xs tracking-widest uppercase animate-pulse">
+      <span>SCROLL DOWN</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SELECTED WORKS (GALLERY) -->
+  <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900" aria-label="Galleria dei Progetti">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div class="space-y-4">
+        <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">PORTFOLIO</span>
+        <h3 class="font-editorial text-4xl md:text-6xl font-bold tracking-tight text-white">PROGETTI SELEZIONATI</h3>
+      </div>
+
+      <!-- Projects Categories Filter System -->
+      <div class="flex flex-wrap gap-2.5 bg-zinc-950 p-1 rounded-full border border-zinc-900/60 self-start md:self-end">
+        <button class="filter-btn active text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-200 border border-white text-white" data-filter="all">TUTTI</button>
+        <button class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-200 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700" data-filter="ui-ux">UI/UX</button>
+        <button class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-200 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700" data-filter="visual-design">VISUAL DESIGN</button>
+        <button class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full transition-all duration-200 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700" data-filter="branding">3D & BRANDING</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Projects Asymmetric Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+
+      <!-- Project 1 (UI/UX) -->
+      <article class="project-card reveal-on-scroll group cursor-none flex flex-col space-y-6" data-category="ui-ux">
+        <div class="project-card-image-container rounded-2xl bg-zinc-900 border border-zinc-800/80 aspect-[16/10] relative">
+          <!-- Rich Simulated Design Mockup (SVG) -->
+          <svg class="w-full h-full object-cover text-zinc-800" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Interfaccia dell'app Neobank">
+            <rect width="800" height="500" fill="#0c0a09"/>
+            <!-- Abstract background shape -->
+            <path d="M100 450 C 300 250, 400 100, 700 200" stroke="#f97316" stroke-width="40" stroke-linecap="round" opacity="0.15" filter="blur(40px)"/>
+            <!-- Top App Bar Mockup -->
+            <rect x="40" y="40" width="720" height="50" rx="10" fill="#1c1917" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <circle cx="65" cy="65" r="6" fill="#ef4444"/>
+            <circle cx="85" cy="65" r="6" fill="#fbbf24"/>
+            <circle cx="105" cy="65" r="6" fill="#10b981"/>
+            <rect x="140" y="55" width="100" height="20" rx="5" fill="rgba(255,255,255,0.1)"/>
+            <rect x="640" y="55" width="80" height="20" rx="5" fill="#f97316"/>
+            <!-- App dashboard workspace -->
+            <rect x="40" y="110" width="450" height="350" rx="15" fill="#141416" stroke="rgba(255,255,255,0.05)"/>
+            <text x="70" y="160" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="24">Dashboard di Finanza</text>
+            <!-- Graphic chart inside mockup -->
+            <rect x="70" y="190" width="390" height="150" rx="10" fill="#1c1917"/>
+            <path d="M 90 300 L 150 240 L 220 270 L 300 210 L 380 250 L 430 170" fill="none" stroke="#f97316" stroke-width="4"/>
+            <circle cx="430" cy="170" r="6" fill="#f97316"/>
+            <!-- Card component right side -->
+            <rect x="510" y="110" width="250" height="160" rx="15" fill="gradient" stroke="rgba(255,255,255,0.05)">
+              <rect width="250" height="160" rx="15" fill="#292524"/>
+            </rect>
+            <text x="540" y="150" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="16">VISA Premium</text>
+            <text x="540" y="230" fill="rgba(255,255,255,0.6)" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">**** **** **** 8824</text>
+            <!-- Process list right side bottom -->
+            <rect x="510" y="290" width="250" height="170" rx="15" fill="#141416" stroke="rgba(255,255,255,0.05)"/>
+            <rect x="530" y="320" width="210" height="35" rx="8" fill="#1c1917"/>
+            <rect x="530" y="370" width="210" height="35" rx="8" fill="#1c1917"/>
+            <circle cx="550" cy="337.5" r="8" fill="#10b981"/>
+            <circle cx="550" cy="387.5" r="8" fill="#ef4444"/>
+          </svg>
+          <div class="project-overlay absolute inset-0 flex items-end p-8 pointer-events-none">
+            <span class="text-xs font-semibold tracking-wider text-black bg-white px-4 py-2 rounded-full">VEDI DETTAGLI</span>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold tracking-widest text-orange-500 uppercase">UI/UX</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-xs font-medium text-zinc-500">2024</span>
+          </div>
+          <h4 class="font-editorial text-2xl font-bold text-white group-hover:text-orange-500 transition-colors duration-300">NEOBANK — Fintech Redesign</h4>
+          <p class="text-zinc-400 font-light leading-relaxed max-w-lg">
+            Un'esperienza finanziaria per le nuove generazioni. Semplificazione dei processi di transazione e un sistema di monitoraggio degli investimenti in tempo reale.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 2 (Visual Design) -->
+      <article class="project-card reveal-on-scroll group cursor-none flex flex-col space-y-6 md:translate-y-12" data-category="visual-design">
+        <div class="project-card-image-container rounded-2xl bg-zinc-900 border border-zinc-800/80 aspect-[16/10] relative">
+          <!-- Rich Simulated Design Mockup (SVG) -->
+          <svg class="w-full h-full object-cover text-zinc-800" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Layout editoriale del brand ODISSEA">
+            <rect width="800" height="500" fill="#09090b"/>
+            <!-- Abstract typographical composition -->
+            <text x="400" y="280" font-family="'Syne', sans-serif" font-weight="bold" font-size="280" text-anchor="middle" fill="#1c1917" opacity="0.4">O</text>
+            <text x="400" y="320" font-family="'Syne', sans-serif" font-weight="bold" font-size="90" text-anchor="middle" fill="#ffffff" letter-spacing="20">ODISSEA</text>
+            <!-- Grid design system guidelines overlay -->
+            <line x1="100" y1="50" x2="100" y2="450" stroke="rgba(249, 115, 22, 0.2)" stroke-dasharray="5 5"/>
+            <line x1="700" y1="50" x2="700" y2="450" stroke="rgba(249, 115, 22, 0.2)" stroke-dasharray="5 5"/>
+            <!-- Small text placeholders for typography styling -->
+            <text x="120" y="100" fill="#f97316" font-family="'Plus Jakarta Sans', sans-serif" font-weight="semibold" font-size="12" letter-spacing="4">CHAPTER I</text>
+            <text x="120" y="420" fill="rgba(255,255,255,0.4)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" max-width="200">EDITORIAL BRAND EXPERIENCES</text>
+            <text x="680" y="420" fill="rgba(255,255,255,0.4)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" text-anchor="end">EST. 2024</text>
+            <!-- Minimal abstract poster lines -->
+            <circle cx="400" cy="180" r="10" fill="#f97316"/>
+          </svg>
+          <div class="project-overlay absolute inset-0 flex items-end p-8 pointer-events-none">
+            <span class="text-xs font-semibold tracking-wider text-black bg-white px-4 py-2 rounded-full">VEDI DETTAGLI</span>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold tracking-widest text-orange-500 uppercase">VISUAL DESIGN</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-xs font-medium text-zinc-500">2024</span>
+          </div>
+          <h4 class="font-editorial text-2xl font-bold text-white group-hover:text-orange-500 transition-colors duration-300">ODISSEA — Identità Editoriale</h4>
+          <p class="text-zinc-400 font-light leading-relaxed max-w-lg">
+            Direzione artistica e layout per una rivista d'arte d'avanguardia. Un'esplorazione tipografica audace unita a una composizione griglia asimmetrica strutturata.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 3 (Branding/3D) -->
+      <article class="project-card reveal-on-scroll group cursor-none flex flex-col space-y-6" data-category="branding">
+        <div class="project-card-image-container rounded-2xl bg-zinc-900 border border-zinc-800/80 aspect-[16/10] relative">
+          <!-- Rich Simulated Design Mockup (SVG) -->
+          <svg class="w-full h-full object-cover text-zinc-800" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Brand identity di KRONOS">
+            <rect width="800" height="500" fill="#121214"/>
+            <!-- Modern 3D shape simulation (Isometric cubes) -->
+            <g transform="translate(400, 230)">
+              <!-- Cube 1 -->
+              <path d="M 0 -100 L 86 -50 L 0 0 L -86 -50 Z" fill="#27272a" stroke="rgba(255,255,255,0.08)"/>
+              <path d="M -86 -50 L 0 0 L 0 100 L -86 50 Z" fill="#18181b" stroke="rgba(255,255,255,0.08)"/>
+              <path d="M 0 0 L 86 -50 L 86 50 L 0 100 Z" fill="#f97316" opacity="0.9" stroke="rgba(255,255,255,0.08)"/>
+              <!-- Hover effect glowing ring -->
+              <ellipse cx="0" cy="110" rx="120" ry="40" stroke="#f97316" stroke-width="2" stroke-dasharray="10 5" opacity="0.6"/>
+            </g>
+            <!-- UI labels -->
+            <text x="50" y="80" fill="white" font-family="'Syne', sans-serif" font-weight="extrabold" font-size="28">KRONOS</text>
+            <text x="50" y="110" fill="rgba(255,255,255,0.4)" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">STUDIO GRAFICO 3D</text>
+            <rect x="50" y="400" width="140" height="40" rx="5" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)"/>
+            <text x="120" y="424" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" text-anchor="middle">ASSET REVEAL</text>
+          </svg>
+          <div class="project-overlay absolute inset-0 flex items-end p-8 pointer-events-none">
+            <span class="text-xs font-semibold tracking-wider text-black bg-white px-4 py-2 rounded-full">VEDI DETTAGLI</span>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold tracking-widest text-orange-500 uppercase">3D & BRANDING</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-xs font-medium text-zinc-500">2023</span>
+          </div>
+          <h4 class="font-editorial text-2xl font-bold text-white group-hover:text-orange-500 transition-colors duration-300">KRONOS — Identità & Asset 3D</h4>
+          <p class="text-zinc-400 font-light leading-relaxed max-w-lg">
+            Direzione artistica multidisciplinare per un brand di tecnologia immersiva. Integrazione di forme geometriche 3D dinamiche nell'identità web di prodotto.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project 4 (UI/UX) -->
+      <article class="project-card reveal-on-scroll group cursor-none flex flex-col space-y-6 md:translate-y-12" data-category="ui-ux">
+        <div class="project-card-image-container rounded-2xl bg-zinc-900 border border-zinc-800/80 aspect-[16/10] relative">
+          <!-- Rich Simulated Design Mockup (SVG) -->
+          <svg class="w-full h-full object-cover text-zinc-800" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Interfaccia di un marketplace NFT">
+            <rect width="800" height="500" fill="#09090b"/>
+            <!-- Top Nav -->
+            <rect x="50" y="30" width="700" height="60" rx="30" fill="#18181b"/>
+            <circle cx="90" cy="60" r="12" fill="#f97316"/>
+            <rect x="130" y="52" width="80" height="16" rx="8" fill="rgba(255,255,255,0.05)"/>
+            <rect x="230" y="52" width="80" height="16" rx="8" fill="rgba(255,255,255,0.05)"/>
+            <rect x="610" y="45" width="110" height="30" rx="15" fill="white"/>
+            <!-- NFT Main Card -->
+            <rect x="50" y="120" width="320" height="340" rx="20" fill="#18181b"/>
+            <!-- Art simulation inside card -->
+            <rect x="70" y="140" width="280" height="200" rx="12" fill="#27272a"/>
+            <circle cx="210" cy="240" r="60" fill="none" stroke="#f97316" stroke-width="10"/>
+            <path d="M 150 240 L 270 240" stroke="#f97316" stroke-width="10" stroke-linecap="round"/>
+            <text x="70" y="380" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="18">Ethereal Symmetry #02</text>
+            <text x="70" y="415" fill="rgba(255,255,255,0.5)" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">Prezzo: 1.45 ETH</text>
+            <!-- NFT details/bidding right side -->
+            <rect x="400" y="120" width="350" height="160" rx="20" fill="#18181b"/>
+            <text x="430" y="170" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="20">Offerte Attive</text>
+            <rect x="430" y="200" width="290" height="50" rx="10" fill="#27272a"/>
+            <!-- Details system -->
+            <rect x="400" y="300" width="350" height="160" rx="20" fill="#18181b"/>
+            <text x="430" y="350" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="18">Statistiche di Vendita</text>
+            <path d="M 430 420 Q 500 370 580 430 T 720 380" fill="none" stroke="#10b981" stroke-width="4"/>
+          </svg>
+          <div class="project-overlay absolute inset-0 flex items-end p-8 pointer-events-none">
+            <span class="text-xs font-semibold tracking-wider text-black bg-white px-4 py-2 rounded-full">VEDI DETTAGLI</span>
+          </div>
+        </div>
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold tracking-widest text-orange-500 uppercase">UI/UX</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-xs font-medium text-zinc-500">2023</span>
+          </div>
+          <h4 class="font-editorial text-2xl font-bold text-white group-hover:text-orange-500 transition-colors duration-300">AETHER — Web3 Platform</h4>
+          <p class="text-zinc-400 font-light leading-relaxed max-w-lg">
+            Progettazione UX per un mercato d'arte digitale. Ottimizzazione delle fasi di acquisto per neofiti del Web3, riducendo la frizione del 40%.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ABOUT & METODOLOGIA / PROCESSO -->
+  <section id="about" class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900" aria-label="Su di me">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+
+      <!-- Column left (Sticky about description) -->
+      <div class="lg:col-span-5 space-y-10 lg:sticky lg:top-32 self-start">
+        <div class="space-y-4">
+          <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">CHI SONO</span>
+          <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">FILOSOFIA E DESIGN SYSTEM</h3>
+        </div>
+
+        <div class="space-y-6 text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+          <p>
+            Sono un progettista multidisciplinare con oltre 5 anni di esperienza nel dare forma a visioni digitali complesse. Credo che un ottimo design non debba essere solo esteticamente spettacolare, ma debba guidare l'utente senza sforzo alcuno.
+          </p>
+          <p>
+            Mi muovo costantemente all'intersezione tra la precisione ingegneristica dell'UX Design e l'espressività artistica del Visual Design. Ogni pixel ha uno scopo, ogni animazione racconta un ritmo.
+          </p>
+        </div>
+
+        <!-- Social Quick Links -->
+        <div class="flex items-center space-x-6 pt-4">
+          <a href="#" class="text-sm font-semibold text-zinc-400 hover:text-white transition-colors duration-200">DRIBBBLE</a>
+          <span class="text-zinc-800">•</span>
+          <a href="#" class="text-sm font-semibold text-zinc-400 hover:text-white transition-colors duration-200">BEHANCE</a>
+          <span class="text-zinc-800">•</span>
+          <a href="#" class="text-sm font-semibold text-zinc-400 hover:text-white transition-colors duration-200">LINKEDIN</a>
+        </div>
+      </div>
+
+      <!-- Column right (Methodology list & Tools) -->
+      <div class="lg:col-span-7 space-y-20">
+
+        <!-- Interactive methodology / Process -->
+        <div id="process" class="space-y-12">
+          <div class="space-y-2">
+            <span class="text-xs font-semibold tracking-widest text-orange-500 uppercase">IL MIO PROCESSO</span>
+            <h4 class="font-editorial text-3xl font-bold text-white">COME DIAMO VITA ALLE IDEE</h4>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6">
+
+            <!-- Process step 1 -->
+            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+              <div class="flex items-start gap-6">
+                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">01</span>
+                <div class="space-y-2">
+                  <h5 class="text-xl font-bold text-white">Scoperta & Strategia</h5>
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                    Comprendo a fondo il tuo business, i tuoi utenti e i tuoi obiettivi aziendali. Attraverso workshop, ricerche di mercato ed audit strutturo le basi del progetto.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Process step 2 -->
+            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+              <div class="flex items-start gap-6">
+                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">02</span>
+                <div class="space-y-2">
+                  <h5 class="text-xl font-bold text-white">Architettura dell'Informazione & UX</h5>
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                    Sviluppo wireframe interattivi e flussi utente volti a ottimizzare la navigabilità. Testo la logica del servizio prima di passare alla parte estetica.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Process step 3 -->
+            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+              <div class="flex items-start gap-6">
+                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">03</span>
+                <div class="space-y-2">
+                  <h5 class="text-xl font-bold text-white">UI & Visual Identity d'Impatto</h5>
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                    Costruisco un linguaggio visivo unico e moderno basato su solide griglie editoriali, tipografia d'eccellenza, ed elementi 3D originali che riflettono la personalità del brand.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Process step 4 -->
+            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+              <div class="flex items-start gap-6">
+                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">04</span>
+                <div class="space-y-2">
+                  <h5 class="text-xl font-bold text-white">Prototipazione & Design System</h5>
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                    Creo prototipi ad alta fedeltà pronti per essere testati e fornisco un Design System atomico ordinato per consentire un passaggio fluido agli sviluppatori.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tech Stack & Tools Section -->
+        <div class="space-y-8 pt-10 border-t border-zinc-900">
+          <div class="space-y-2">
+            <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">TECNOLOGIE & COMPETENZE</span>
+            <h4 class="font-editorial text-3xl font-bold text-white">STRUMENTI & SOFTWARE DI ELEZIONE</h4>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <!-- Tool Item -->
+            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
+              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Figma Mastery</span>
+            </div>
+            <!-- Tool Item -->
+            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
+              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Design Systems</span>
+            </div>
+            <!-- Tool Item -->
+            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
+              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Prototyping</span>
+            </div>
+            <!-- Tool Item -->
+            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
+              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Cinema 4D / 3D</span>
+            </div>
+            <!-- Tool Item -->
+            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
+              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">After Effects</span>
+            </div>
+            <!-- Tool Item -->
+            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
+              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Tailwind & HTML</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE CALL TO ACTION / NEWSLETTER / COPY SECTION -->
+  <section class="bg-zinc-950 border-t border-b border-zinc-900 py-24 px-6 md:px-12 relative overflow-hidden" aria-label="Collabora">
+    <div class="absolute left-1/4 -top-20 w-80 h-80 bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+      <div class="space-y-6 max-w-2xl text-center lg:text-left">
+        <h4 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white">HAI UN'IDEA DA SVILUPPARE?</h4>
+        <p class="text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+          Che si tratti di lanciare una nuova applicazione da zero, ridefinire un design system complesso o collaborare su progetti di visual identity d'impatto, parliamone davanti a un caffè virtuale.
+        </p>
+      </div>
+
+      <!-- Quick Interactive Copy Box -->
+      <div class="bg-[#09090b] border border-zinc-800 p-6 md:p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6 w-full lg:max-w-md">
+        <div class="space-y-1 text-center sm:text-left">
+          <span class="text-[10px] font-bold tracking-widest text-zinc-500 uppercase">METTITI IN CONTATTO</span>
+          <p class="text-sm font-semibold text-white">hello@alessandrobottone.it</p>
+        </div>
+        <button id="copy-email-btn" class="w-full sm:w-auto ml-auto px-6 py-3 bg-white hover:bg-orange-500 text-black hover:text-white font-bold text-xs tracking-wider rounded-xl transition-colors duration-300 uppercase focus:outline-none focus:ring-2 focus:ring-orange-500">
+          COPIA EMAIL
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM SECTION -->
+  <section id="contact" class="py-32 px-6 md:px-12 max-w-7xl mx-auto" aria-label="Modulo di Contatto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+
+      <!-- Contact details -->
+      <div class="lg:col-span-5 space-y-8">
+        <div class="space-y-4">
+          <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">CONTATTO</span>
+          <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white">SCRIVIMI</h3>
+        </div>
+        <p class="text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+          Compila il modulo o invia direttamente un messaggio per ricevere una quotazione personalizzata o informazioni sul mio calendario di disponibilità. Rispondo solitamente entro 24 ore.
+        </p>
+
+        <!-- Interactive Office hours card -->
+        <div class="p-6 bg-zinc-950 border border-zinc-900 rounded-xl space-y-3">
+          <h5 class="text-xs font-bold text-zinc-400 tracking-wider uppercase">ORARI DI RISPOSTA</h5>
+          <p class="text-sm font-medium text-white">Lunedì — Venerdì, 09:00 - 18:00 (CET)</p>
+          <p class="text-xs text-zinc-500">Basato a Milano, Italia — Aperto a collaborazioni da remoto in tutto il mondo.</p>
+        </div>
+      </div>
+
+      <!-- Modern Interactive Form -->
+      <form id="contact-form" class="lg:col-span-7 space-y-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label for="name" class="text-xs font-bold text-zinc-400 tracking-wider uppercase">NOME COMPLETO</label>
+            <input type="text" id="name" name="name" placeholder="Es. Alessandro Bottone" required class="editorial-input text-white text-base">
+          </div>
+          <div class="space-y-2">
+            <label for="email" class="text-xs font-bold text-zinc-400 tracking-wider uppercase">INDIRIZZO EMAIL</label>
+            <input type="email" id="email" name="email" placeholder="Es. alessandro@esempio.it" required class="editorial-input text-white text-base">
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label for="message" class="text-xs font-bold text-zinc-400 tracking-wider uppercase">IL TUO MESSAGGIO</label>
+          <textarea id="message" name="message" rows="5" placeholder="Descrivi brevemente la tua idea, il budget indicativo e le tempistiche di consegna..." required class="editorial-input text-white text-base resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="group px-8 py-4 bg-orange-500 text-white font-bold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto justify-center">
+          <span>INVIA MESSAGGIO</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#050507] border-t border-zinc-900 py-12 px-6 md:px-12 text-zinc-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <!-- Logo branding footer -->
+      <div class="flex items-center space-x-3">
+        <span class="font-editorial text-sm font-bold text-zinc-300 tracking-tight">ALESSANDRO BOTTONE</span>
+        <span class="text-zinc-700">•</span>
+        <span class="text-xs">UI/UX & Visual Designer Portfolio © 2024</span>
+      </div>
+
+      <!-- Legal & privacy policy terms placeholder -->
+      <div class="flex items-center space-x-6 text-xs">
+        <a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors duration-200">Cookie Settings</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Element injected dynamically if absent -->
+  <div class="toast-notification" aria-live="polite"></div>
+
+  <!-- Custom App JS engine -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
