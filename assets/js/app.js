@@ -174,7 +174,7 @@ function initEmailCopy() {
   if (!copyBtn) return;
 
   copyBtn.addEventListener('click', () => {
-    const email = 'hello@alessandrodesign.it';
+    const email = 'hello@alessandrobottone.it';
     navigator.clipboard.writeText(email).then(() => {
       showToast('E-mail copiata negli appunti!');
     }).catch(err => {
