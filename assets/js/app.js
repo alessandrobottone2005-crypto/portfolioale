@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initSmoothScroll();
   initScrollHeader();
+  initScrollIndicator();
   initThreeJS();
   initPreloader();
 });
@@ -311,6 +312,24 @@ function initGSAPAnimations() {
   });
 }
 
+// Centered scroll-driven progress connector (Un unico pezzo per Awwwards feel)
+function initScrollIndicator() {
+  const indicator = document.getElementById('scroll-path-indicator');
+  if (!indicator) return;
+
+  const handleScrollIndicator = () => {
+    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollTotal <= 0) return;
+
+    const scrolledPercent = (window.scrollY / scrollTotal) * 100;
+    indicator.style.height = `${scrolledPercent}%`;
+  };
+
+  window.addEventListener('scroll', handleScrollIndicator);
+  window.addEventListener('resize', handleScrollIndicator);
+  handleScrollIndicator(); // Trigger initially
+}
+
 // Scroll-triggered header transition (Transparent -> Frosted Glass per DESIGN.md)
 function initScrollHeader() {
   const header = document.getElementById('site-header');
@@ -452,12 +471,51 @@ function initThreeJS() {
 
     particleSystem.rotation.x = targetY * 0.5;
     particleSystem.rotation.y += targetX * 0.5;
-    torusKnot.position.x = targetX * 1.5;
-    torusKnot.position.y = -targetY * 1.5;
 
-    // React to scroll position
-    const scrollY = window.scrollY;
-    camera.position.y = -scrollY * 0.003;
+    // React to scroll position with highly immersive, fluid transitions (Awwwards design system)
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollHeight > 0 ? (window.scrollY / scrollHeight) : 0;
+
+    // Fluid position morphs based on scroll percent
+    // Hero (0%) -> Projects (25%) -> About (60%) -> Contacts (100%)
+    let targetTorusX = 0;
+    let targetTorusY = 0;
+    let targetTorusZ = 0;
+    let targetTorusScale = 1.0;
+
+    if (scrollPercent < 0.3) {
+      // Transition Hero to Projects
+      const t = scrollPercent / 0.3; // 0 to 1
+      targetTorusX = -1.8 * t;
+      targetTorusY = -0.5 * t;
+      targetTorusZ = t * 0.5;
+      targetTorusScale = 1.0 - t * 0.3;
+    } else if (scrollPercent < 0.7) {
+      // Transition Projects to About
+      const t = (scrollPercent - 0.3) / 0.4; // 0 to 1
+      targetTorusX = -1.8 + t * 3.6; // Moves to the right
+      targetTorusY = -0.5 + t * 0.5;
+      targetTorusZ = 0.5 - t * 0.5;
+      targetTorusScale = 0.7 + t * 0.4;
+    } else {
+      // Transition About to Contacts
+      const t = (scrollPercent - 0.7) / 0.3; // 0 to 1
+      targetTorusX = 1.8 - t * 1.8; // Centered
+      targetTorusY = 0.0 - t * 0.5;
+      targetTorusZ = 0.0 + t * 1.5; // Moves closer for high immersion
+      targetTorusScale = 1.1 + t * 0.4;
+    }
+
+    // Smoothly lerp towards target scroll parameters + mouse tracking
+    torusKnot.position.x += (targetTorusX + targetX * 1.5 - torusKnot.position.x) * 0.05;
+    torusKnot.position.y += (targetTorusY - targetY * 1.5 - torusKnot.position.y) * 0.05;
+    torusKnot.position.z += (targetTorusZ - torusKnot.position.z) * 0.05;
+
+    const scaleVal = torusKnot.scale.x + (targetTorusScale - torusKnot.scale.x) * 0.05;
+    torusKnot.scale.set(scaleVal, scaleVal, scaleVal);
+
+    // Camera movement tracking the scroll path
+    camera.position.y = -window.scrollY * 0.002;
 
     // Render only when tab is active (saves CPU/GPU per VIBE-CODING-GUIDELINES.md)
     if (isTabActive) {

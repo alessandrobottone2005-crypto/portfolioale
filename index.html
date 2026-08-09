@@ -78,6 +78,11 @@
     <div class="grid-line"></div>
   </div>
 
+  <!-- Centered Scroll-Driven Connection Path Indicator (Un unico pezzo che scende per Awwwards feel) -->
+  <div class="fixed left-6 md:left-12 top-0 h-full w-[2px] bg-zinc-900/60 z-40 pointer-events-none hidden sm:block" aria-hidden="true">
+    <div id="scroll-path-indicator" class="w-full h-0 bg-gradient-to-b from-indigo-500 via-purple-500 to-coral shadow-[0_0_12px_rgba(99,102,241,0.8)] transition-all duration-100"></div>
+  </div>
+
   <!-- HEADER / NAVIGATION -->
   <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent border-b border-transparent">
     <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
@@ -457,18 +462,18 @@
     </div>
   </section>
 
-  <!-- ABOUT & METODOLOGIA / PROCESSO (Warm Soft Cream backdrop with content header zones per DESIGN.md) -->
-  <section id="about" class="w-full bg-[#f5f5f0] py-32 text-[#1a1a2e]" aria-label="Su di me">
+  <!-- ABOUT & METODOLOGIA / PROCESSO (Cohesive Continuous Dark Space per Awwwards feel) -->
+  <section id="about" class="w-full bg-[#0a0a0f] py-32 text-white border-t border-zinc-900/60" aria-label="Su di me">
     <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
       <!-- Column left (Sticky about description) -->
       <div class="lg:col-span-5 space-y-10 lg:sticky lg:top-32 self-start">
         <div class="space-y-4">
-          <span class="text-xs font-semibold tracking-widest text-indigo-600 uppercase">CHI SONO</span>
-          <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-[#1a1a2e] leading-tight letter-spacing-tight">FILOSOFIA E DESIGN SYSTEM</h3>
+          <span class="text-xs font-semibold tracking-widest text-indigo-400 uppercase">CHI SONO</span>
+          <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight letter-spacing-tight">FILOSOFIA E DESIGN SYSTEM</h3>
         </div>
 
-        <div class="space-y-6 text-[#4a5568] font-light text-base md:text-lg leading-relaxed">
+        <div class="space-y-6 text-zinc-400 font-light text-base md:text-lg leading-relaxed">
           <p>
             Sono un progettista multidisciplinare con oltre 5 anni di esperienza nel dare forma a visioni digitali complesse. Credo che un ottimo design non debba essere solo esteticamente spettacolare, ma debba guidare l'utente senza sforzo alcuno.
           </p>
@@ -478,12 +483,12 @@
         </div>
 
         <!-- Social Quick Links -->
-        <div class="flex items-center space-x-6 pt-4 text-indigo-600 font-semibold">
-          <a href="#" class="text-sm hover:text-indigo-800 transition-colors duration-200">DRIBBBLE</a>
-          <span class="text-zinc-300">•</span>
-          <a href="#" class="text-sm hover:text-indigo-800 transition-colors duration-200">BEHANCE</a>
-          <span class="text-zinc-300">•</span>
-          <a href="#" class="text-sm hover:text-indigo-800 transition-colors duration-200">LINKEDIN</a>
+        <div class="flex items-center space-x-6 pt-4 text-indigo-400 font-semibold">
+          <a href="#" class="text-sm hover:text-indigo-300 transition-colors duration-200">DRIBBBLE</a>
+          <span class="text-zinc-700">•</span>
+          <a href="#" class="text-sm hover:text-indigo-300 transition-colors duration-200">BEHANCE</a>
+          <span class="text-zinc-700">•</span>
+          <a href="#" class="text-sm hover:text-indigo-300 transition-colors duration-200">LINKEDIN</a>
         </div>
       </div>
 
@@ -493,58 +498,58 @@
         <!-- Interactive methodology / Process -->
         <div id="process" class="space-y-12">
           <div class="space-y-2">
-            <span class="text-xs font-semibold tracking-widest text-indigo-600 uppercase">IL MIO PROCESSO</span>
-            <h4 class="font-editorial text-3xl font-bold text-[#1a1a2e]">COME DIAMO VITA ALLE IDEE</h4>
+            <span class="text-xs font-semibold tracking-widest text-indigo-400 uppercase">IL MIO PROCESSO</span>
+            <h4 class="font-editorial text-3xl font-bold text-white">COME DIAMO VITA ALLE IDEE</h4>
           </div>
 
           <div class="grid grid-cols-1 gap-6">
 
-            <!-- Process step 1 (Indigo Card - color-coordinated) -->
-            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
+            <!-- Process step 1 (Indigo Card - glassmorphic) -->
+            <div class="process-card p-8 bg-zinc-950/60 border border-zinc-900/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
-                <span class="font-editorial text-3xl font-extrabold text-indigo-600 px-3 py-1 bg-indigo-600/10 rounded-xl">01</span>
+                <span class="font-editorial text-3xl font-extrabold text-indigo-400 px-3 py-1 bg-indigo-600/10 rounded-xl">01</span>
                 <div class="space-y-2">
-                  <h5 class="text-xl font-bold text-indigo-600">Scoperta & Strategia</h5>
-                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
+                  <h5 class="text-xl font-bold text-indigo-400">Scoperta & Strategia</h5>
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
                     Comprendo a fondo il tuo business, i tuoi utenti e i tuoi obiettivi aziendali. Attraverso workshop, ricerche di mercato ed audit strutturo le basi del progetto.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Process step 2 (Coral Card - color-coordinated) -->
-            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
+            <!-- Process step 2 (Coral Card - glassmorphic) -->
+            <div class="process-card p-8 bg-zinc-950/60 border border-zinc-900/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
                 <span class="font-editorial text-3xl font-extrabold text-coral px-3 py-1 bg-coral/10 rounded-xl">02</span>
                 <div class="space-y-2">
                   <h5 class="text-xl font-bold text-coral">Architettura dell'Informazione & UX</h5>
-                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
                     Sviluppo wireframe interattivi e flussi utente volti a ottimizzare la navigabilità. Testo la logica del servizio prima di passare alla parte estetica.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Process step 3 (Emerald Card - color-coordinated) -->
-            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
+            <!-- Process step 3 (Emerald Card - glassmorphic) -->
+            <div class="process-card p-8 bg-zinc-950/60 border border-zinc-900/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
                 <span class="font-editorial text-3xl font-extrabold text-emerald px-3 py-1 bg-emerald/10 rounded-xl">03</span>
                 <div class="space-y-2">
                   <h5 class="text-xl font-bold text-emerald">UI & Visual Identity d'Impatto</h5>
-                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
                     Costruisco un linguaggio visivo unico e moderno basato su solide griglie editoriali, tipografia d'eccellenza, ed elementi 3D originali che riflettono la personalità del brand.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Process step 4 (Purple Card - color-coordinated) -->
-            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
+            <!-- Process step 4 (Purple Card - glassmorphic) -->
+            <div class="process-card p-8 bg-zinc-950/60 border border-zinc-900/80 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
-                <span class="font-editorial text-3xl font-extrabold text-purple-600 px-3 py-1 bg-purple-600/10 rounded-xl">04</span>
+                <span class="font-editorial text-3xl font-extrabold text-purple-400 px-3 py-1 bg-purple-600/10 rounded-xl">04</span>
                 <div class="space-y-2">
-                  <h5 class="text-xl font-bold text-purple-600">Prototipazione & Design System</h5>
-                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
+                  <h5 class="text-xl font-bold text-purple-400">Prototipazione & Design System</h5>
+                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
                     Creo prototipi ad alta fedeltà pronti per essere testati e fornisco un Design System atomico ordinato per consentire un passaggio fluido agli sviluppatori.
                   </p>
                 </div>
@@ -555,42 +560,42 @@
         </div>
 
         <!-- Tech Stack & Tools Section -->
-        <div class="space-y-8 pt-10 border-t border-slate-200">
+        <div class="space-y-8 pt-10 border-t border-zinc-900/60">
           <div class="space-y-2">
-            <span class="text-xs font-semibold tracking-widest text-slate-500 uppercase">TECNOLOGIE & COMPETENZE</span>
-            <h4 class="font-editorial text-3xl font-bold text-[#1a1a2e]">STRUMENTI & SOFTWARE DI ELEZIONE</h4>
+            <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">TECNOLOGIE & COMPETENZE</span>
+            <h4 class="font-editorial text-3xl font-bold text-white">STRUMENTI & SOFTWARE DI ELEZIONE</h4>
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+            <div class="flex items-center space-x-3 bg-zinc-950/40 border border-zinc-900/80 p-4 rounded-xl shadow-sm">
               <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-slate-700">Figma Mastery</span>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Figma Mastery</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+            <div class="flex items-center space-x-3 bg-zinc-950/40 border border-zinc-900/80 p-4 rounded-xl shadow-sm">
               <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-slate-700">Design Systems</span>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Design Systems</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+            <div class="flex items-center space-x-3 bg-zinc-950/40 border border-zinc-900/80 p-4 rounded-xl shadow-sm">
               <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-slate-700">Prototyping</span>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Prototyping</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+            <div class="flex items-center space-x-3 bg-zinc-950/40 border border-zinc-900/80 p-4 rounded-xl shadow-sm">
               <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-slate-700">Cinema 4D / 3D</span>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Cinema 4D / 3D</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+            <div class="flex items-center space-x-3 bg-zinc-950/40 border border-zinc-900/80 p-4 rounded-xl shadow-sm">
               <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-slate-700">After Effects</span>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">After Effects</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+            <div class="flex items-center space-x-3 bg-zinc-950/40 border border-zinc-900/80 p-4 rounded-xl shadow-sm">
               <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-slate-700">Tailwind & HTML</span>
+              <span class="text-sm font-semibold tracking-wide text-zinc-300">Tailwind & HTML</span>
             </div>
           </div>
         </div>
