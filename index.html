@@ -473,12 +473,15 @@
           <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight letter-spacing-tight">FILOSOFIA E DESIGN SYSTEM</h3>
         </div>
 
-        <div class="space-y-6 text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+        <div class="space-y-6 text-zinc-300 font-light text-base md:text-lg leading-relaxed" style="font-family: var(--font-ds);">
           <p>
-            Sono un progettista multidisciplinare con oltre 5 anni di esperienza nel dare forma a visioni digitali complesse. Credo che un ottimo design non debba essere solo esteticamente spettacolare, ma debba guidare l'utente senza sforzo alcuno.
+            sono Alessandro Bottone, graphic e brand designer con un percorso di 7 anni di esperienza maturata tra studio e attività sul campo. attualmente frequento il corso di design della comunicazione alla IUAD per affinare ulteriormente la mia metodologia progettuale.
           </p>
           <p>
-            Mi muovo costantemente all'intersezione tra la precisione ingegneristica dell'UX Design e l'espressività artistica del Visual Design. Ogni pixel ha uno scopo, ogni animazione racconta un ritmo.
+            nell'ultimo anno ho scelto di ampliare i miei orizzonti creativi esplorando attivamente l'illustrazione e nuove contaminazioni visive, integrando la precisione strategica del branding con la forza espressiva del disegno.
+          </p>
+          <p>
+            il mio obiettivo è tradurre i valori e la visione dei clienti in sistemi d'identità solidi, maturi e dal forte impatto contemporaneo.
           </p>
         </div>
 
@@ -697,6 +700,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- PROJECT DETAIL MODAL (Figma Design System Specification) -->
+  <div id="project-modal" class="fixed inset-0 bg-[#0a0a0f]/90 z-[10500] backdrop-blur-lg flex items-center justify-center p-6 opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Modal Container -->
+    <div class="glass-dark border border-zinc-800/80 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row h-auto max-h-[90vh]" style="font-family: var(--font-ds);">
+
+      <!-- Left side: Project Large SVG Preview / Mockup -->
+      <div id="modal-project-preview" class="w-full md:w-1/2 bg-zinc-950 flex items-center justify-center p-8 border-b md:border-b-0 md:border-r border-zinc-900">
+        <!-- SVG will be injected here dynamically in JS -->
+      </div>
+
+      <!-- Right side: Project Details (Figma extracted styles) -->
+      <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between overflow-y-auto">
+        <div class="space-y-8">
+
+          <!-- Title & Meta Header -->
+          <div class="space-y-4">
+            <h4 id="modal-project-title" class="text-white text-3xl md:text-[36px] font-bold leading-[37px] tracking-tight">Titolo</h4>
+
+            <div class="flex items-center space-x-6 text-[#4D4B4A] text-xl md:text-[24px] font-semibold leading-[25px]">
+              <span id="modal-project-category">Categoria</span>
+              <span class="text-zinc-700">•</span>
+              <span id="modal-project-year">2026</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p id="modal-project-description" class="text-[#C9C5C0] text-base md:text-[18px] font-semibold leading-[24px] md:leading-[28px]">
+            Descrizione
+          </p>
+
+        </div>
+
+        <!-- Close Button (Big size 56px default per Figma spec) -->
+        <div class="pt-8">
+          <button id="close-modal-btn" class="btn-ds btn-ds-big btn-ds-default w-full sm:w-auto">
+            CHIUDI
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
   <!-- Notification Toast Element injected dynamically if absent -->
   <div class="toast-notification" aria-live="polite"></div>

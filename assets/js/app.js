@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollHeader();
   initScrollIndicator();
+  initProjectModal();
   initThreeJS();
   initPreloader();
 });
@@ -348,6 +349,97 @@ function initScrollHeader() {
 
   window.addEventListener('scroll', handleScroll);
   handleScroll(); // Trigger initially
+}
+
+// Interactive Project Detail Modal per Figma Design System spec
+function initProjectModal() {
+  const modal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-project-title');
+  const modalCategory = document.getElementById('modal-project-category');
+  const modalYear = document.getElementById('modal-project-year');
+  const modalDescription = document.getElementById('modal-project-description');
+  const modalPreview = document.getElementById('modal-project-preview');
+  const closeBtn = document.getElementById('close-modal-btn');
+
+  if (!modal || !closeBtn) return;
+
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    // Prevent default anchor clicks if cards are wrapped in links
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Extract details
+      const title = card.querySelector('h4') ? card.querySelector('h4').innerText : 'Progetto';
+      const category = card.querySelector('.flex span:nth-of-type(1)') ? card.querySelector('.flex span:nth-of-type(1)').innerText : 'UI/UX';
+      const year = card.querySelector('.flex span:nth-of-type(3)') ? card.querySelector('.flex span:nth-of-type(3)').innerText : '2026';
+      const description = card.querySelector('p') ? card.querySelector('p').innerText : 'Dettaglio Progetto';
+
+      // Clone the internal SVG mockup cleanly
+      const svg = card.querySelector('.project-card-image-container svg');
+
+      // Update modal text content
+      if (modalTitle) modalTitle.innerText = title;
+      if (modalCategory) modalCategory.innerText = category;
+      if (modalYear) modalYear.innerText = year;
+      if (modalDescription) modalDescription.innerText = description;
+
+      if (modalPreview && svg) {
+        modalPreview.innerHTML = '';
+        const clonedSvg = svg.cloneNode(true);
+        clonedSvg.classList.remove('object-cover', 'w-full', 'h-full');
+        clonedSvg.classList.add('w-full', 'max-w-md', 'h-auto');
+        modalPreview.appendChild(clonedSvg);
+      }
+
+      // Elegant GSAP animation reveals
+      if (typeof gsap !== 'undefined') {
+        gsap.to(modal, {
+          opacity: 1,
+          pointerEvents: 'auto',
+          duration: 0.4,
+          ease: 'power3.out'
+        });
+        gsap.fromTo(modal.querySelector('> div'),
+          { scale: 0.9, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.2)' }
+        );
+      } else {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    });
+  });
+
+  // Close modal function
+  function closeModal() {
+    if (typeof gsap !== 'undefined') {
+      gsap.to(modal, {
+        opacity: 0,
+        pointerEvents: 'none',
+        duration: 0.3,
+        ease: 'power3.in'
+      });
+    } else {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+
+  // Close on outer click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Esc key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none') && modal.style.pointerEvents !== 'none') {
+      closeModal();
+    }
+  });
 }
 
 // Immersive 3D Constellation and Floating Geometry Background via Three.js

@@ -1,6 +1,6 @@
 /* Custom Editorial/Minimalist Portfolio Stylesheet */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap');
 
 :root {
   --color-bg: #0a0a0f; /* Deep Void per DESIGN.md */
@@ -15,6 +15,16 @@
   --font-editorial: 'Syne', sans-serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --cursor-size: 20px;
+
+  /* Figma Extracted Design System Tokens */
+  --surface-primary: #141414;
+  --surface-main: #C9C5C0;
+  --surface-disabled: #4D4B4A;
+  --text-primary: #141414;
+  --text-on-primary: #C9C5C0;
+  --text-secondary: #4D4B4A;
+  --text-disabled: #C9C5C0;
+  --font-ds: 'Outfit', sans-serif;
 
   /* DESIGN.md Shadow Scale (Ambient Occlusion) */
   --shadow-1: 0 1px 2px rgba(0,0,0,0.05);
@@ -341,6 +351,85 @@ body {
 
 .toast-notification.active {
   transform: translateY(0);
+}
+
+/* Figma Extracted Design System Button Styles */
+.btn-ds {
+  font-family: var(--font-ds);
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  user-select: none;
+}
+
+/* Sizes */
+.btn-ds-big {
+  height: 56px;
+  padding: 10px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.btn-ds-medium {
+  height: 48px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.btn-ds-small {
+  height: 40px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+/* States */
+.btn-ds-default {
+  background: var(--surface-main);
+  color: var(--text-primary);
+}
+
+.btn-ds-default:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.btn-ds-elevated {
+  background: var(--surface-primary);
+  color: var(--text-on-primary);
+  box-shadow: 0px 3px 4.6px rgba(201, 197, 192, 0.4);
+}
+
+.btn-ds-elevated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(201, 197, 192, 0.6);
+}
+
+.btn-ds-outline {
+  background: var(--surface-primary);
+  color: var(--text-on-primary);
+  box-shadow: 0px 3px 4.6px rgba(201, 197, 192, 0.4);
+  border: 1.50px var(--text-on-primary) solid;
+}
+
+.btn-ds-outline:hover {
+  background: rgba(201, 197, 192, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-ds-disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* Accessible prefers-reduced-motion styling per VIBE-CODING-GUIDELINES.md */
