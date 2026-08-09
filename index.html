@@ -27,8 +27,16 @@
 
   <!-- Custom CSS stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Animation Libraries (Three.js & GSAP) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-[#09090b] text-zinc-100 font-sans selection:bg-orange-500 selection:text-black">
+
+  <!-- Immersive 3D Background Canvas -->
+  <canvas id="canvas-3d" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
   <!-- Grain Overlay -->
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -47,7 +55,7 @@
   <!-- HEADER / NAVIGATION -->
   <header class="fixed top-0 left-0 w-full z-50 border-b border-zinc-900/80 bg-zinc-950/40 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-      <a href="#" class="font-editorial text-lg md:text-xl font-bold tracking-tight text-white focus:outline-none focus:ring-1 focus:ring-orange-500 rounded px-1">
+      <a href="#" class="magnetic-btn font-editorial text-lg md:text-xl font-bold tracking-tight text-white focus:outline-none focus:ring-1 focus:ring-orange-500 rounded px-1">
         ALESSANDRO BOTTONE<span class="text-accent">.</span>
       </a>
 
@@ -123,14 +131,14 @@
 
       <!-- Hero Call-To-Actions -->
       <div class="flex flex-wrap items-center gap-6 pt-6">
-        <a href="#projects" class="group relative px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-orange-500/5 hover:shadow-orange-500/20">
+        <a href="#projects" class="magnetic-btn group relative px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-orange-500/5 hover:shadow-orange-500/20">
           <span>ESPLORA I PROGETTI</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </a>
 
-        <a href="#contact" class="px-8 py-4 border border-zinc-800 text-zinc-300 hover:border-white hover:text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-300 inline-flex items-center space-x-2">
+        <a href="#contact" class="magnetic-btn px-8 py-4 border border-zinc-800 text-zinc-300 hover:border-white hover:text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-300 inline-flex items-center space-x-2">
           <span>COLLABORIAMO</span>
         </a>
       </div>
@@ -144,6 +152,25 @@
       </svg>
     </div>
   </section>
+
+  <!-- INFINITE MOTION TICKER / MARQUEE -->
+  <div class="w-full overflow-hidden bg-zinc-950 py-6 border-t border-b border-zinc-900/50 relative z-10 flex select-none">
+    <div class="ticker-content flex space-x-12 whitespace-nowrap text-xs md:text-sm font-semibold tracking-widest text-zinc-400 uppercase">
+      <span>UI/UX DESIGN</span><span class="text-orange-500">•</span>
+      <span>VISUAL IDENTITY</span><span class="text-orange-500">•</span>
+      <span>3D BRANDING</span><span class="text-orange-500">•</span>
+      <span>DESIGN SYSTEMS</span><span class="text-orange-500">•</span>
+      <span>INTERACTIVE PROTOTYPING</span><span class="text-orange-500">•</span>
+      <span>MOTION GRAPHICS</span><span class="text-orange-500">•</span>
+      <!-- Duplicate for infinite seamless scroll -->
+      <span>UI/UX DESIGN</span><span class="text-orange-500">•</span>
+      <span>VISUAL IDENTITY</span><span class="text-orange-500">•</span>
+      <span>3D BRANDING</span><span class="text-orange-500">•</span>
+      <span>DESIGN SYSTEMS</span><span class="text-orange-500">•</span>
+      <span>INTERACTIVE PROTOTYPING</span><span class="text-orange-500">•</span>
+      <span>MOTION GRAPHICS</span><span class="text-orange-500">•</span>
+    </div>
+  </div>
 
   <!-- SELECTED WORKS (GALLERY) -->
   <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900" aria-label="Galleria dei Progetti">
@@ -546,7 +573,7 @@
           <textarea id="message" name="message" rows="5" placeholder="Descrivi brevemente la tua idea, il budget indicativo e le tempistiche di consegna..." required class="editorial-input text-white text-base resize-none"></textarea>
         </div>
 
-        <button type="submit" class="group px-8 py-4 bg-orange-500 text-white font-bold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto justify-center">
+        <button type="submit" class="magnetic-btn group px-8 py-4 bg-orange-500 text-white font-bold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto justify-center">
           <span>INVIA MESSAGGIO</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
