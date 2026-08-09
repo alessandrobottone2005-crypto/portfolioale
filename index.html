@@ -13,8 +13,12 @@
       theme: {
         extend: {
           colors: {
-            bg: '#09090b',
-            accent: '#f97316',
+            bg: '#0a0a0f',
+            accent: '#6366f1',
+            coral: '#f97316',
+            cream: '#f5f5f0',
+            void: '#0a0a0f',
+            emerald: '#10b981',
           },
           fontFamily: {
             editorial: ['Syne', 'sans-serif'],
@@ -53,10 +57,10 @@
   </div>
 
   <!-- HEADER / NAVIGATION -->
-  <header class="fixed top-0 left-0 w-full z-50 border-b border-zinc-900/80 bg-zinc-950/40 backdrop-blur-md">
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent border-b border-transparent">
     <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-      <a href="#" class="magnetic-btn font-editorial text-lg md:text-xl font-bold tracking-tight text-white focus:outline-none focus:ring-1 focus:ring-orange-500 rounded px-1">
-        ALESSANDRO BOTTONE<span class="text-accent">.</span>
+      <a href="#" class="magnetic-btn font-editorial text-lg md:text-xl font-bold tracking-tight text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 rounded px-1">
+        ALESSANDRO BOTTONE<span class="text-indigo-500">.</span>
       </a>
 
       <!-- Desktop Nav -->
@@ -79,7 +83,7 @@
       </div>
 
       <!-- Mobile Menu Toggle Button -->
-      <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri menu">
+      <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -109,19 +113,20 @@
 
   <!-- HERO SECTION -->
   <section class="min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 md:px-12 max-w-7xl mx-auto relative overflow-hidden" aria-label="Presentazione">
-    <div class="absolute right-0 top-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute left-1/3 bottom-10 w-80 h-80 bg-zinc-700/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
+    <!-- Immersive Aurora/Mesh glow elements per DESIGN.md -->
+    <div class="absolute right-[-10%] top-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute left-[15%] bottom-10 w-[450px] h-[450px] bg-coral/5 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
 
     <div class="relative z-10 space-y-10 max-w-5xl">
       <!-- Tag/Subheading line -->
       <div class="flex items-center space-x-4">
-        <span class="h-px w-8 bg-orange-500 inline-block"></span>
-        <h2 class="text-xs md:text-sm font-semibold tracking-widest text-orange-500 uppercase">UI/UX & VISUAL DESIGN</h2>
+        <span class="h-px w-8 bg-indigo-500 inline-block"></span>
+        <h2 class="text-xs md:text-sm font-semibold tracking-widest text-indigo-400 uppercase">UI/UX & VISUAL DESIGN</h2>
       </div>
 
-      <!-- Main Headline (Editorial & Typographic) -->
+      <!-- Main Headline (Editorial & Typographic - tight tracking per DESIGN.md) -->
       <h1 class="font-editorial text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] text-white">
-        CREO INTERFACCE <span class="text-zinc-600 italic font-medium">uniche</span> CHE RACCONTANO STORIE.
+        CREO INTERFACCE <span class="text-zinc-500 italic font-medium">uniche</span> CHE RACCONTANO STORIE.
       </h1>
 
       <!-- Short Manifesto -->
@@ -129,16 +134,16 @@
         Aiuto startup innovative e brand ambiziosi a ridefinire il loro ecosistema digitale attraverso un design d'impatto visivo, flussi intuitivi ed estetica editoriale contemporanea.
       </p>
 
-      <!-- Hero Call-To-Actions -->
+      <!-- Hero Call-To-Actions (Electric Indigo and Coral Warmth per DESIGN.md) -->
       <div class="flex flex-wrap items-center gap-6 pt-6">
-        <a href="#projects" class="magnetic-btn group relative px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-xl shadow-orange-500/5 hover:shadow-orange-500/20">
+        <a href="#projects" class="magnetic-btn group relative px-8 py-4 bg-indigo-600 text-white font-semibold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-indigo-700 transition-all duration-300 shadow-xl shadow-indigo-600/30 hover:shadow-indigo-600/50">
           <span>ESPLORA I PROGETTI</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </a>
 
-        <a href="#contact" class="magnetic-btn px-8 py-4 border border-zinc-800 text-zinc-300 hover:border-white hover:text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-300 inline-flex items-center space-x-2">
+        <a href="#contact" class="magnetic-btn px-8 py-4 border border-zinc-800 hover:border-indigo-500 hover:bg-indigo-600/10 text-zinc-300 hover:text-white font-semibold text-sm tracking-wide rounded-full transition-all duration-300 inline-flex items-center space-x-2">
           <span>COLLABORIAMO</span>
         </a>
       </div>
@@ -150,6 +155,69 @@
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
       </svg>
+    </div>
+  </section>
+
+  <!-- TRUST BAR / LOGO GRID (DESIGN.md specification) -->
+  <section class="w-full py-16 bg-zinc-950/60 border-t border-zinc-900/50 relative z-10" aria-label="Strumenti e Collaborazioni">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center space-y-8">
+      <span class="text-[10px] md:text-xs font-bold tracking-widest text-zinc-500 uppercase">TECNOLOGIE & STRUMENTI CERTIFICATI</span>
+      <div class="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+
+        <!-- Figma Logo -->
+        <div class="h-8 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105" title="Figma">
+          <svg class="h-7 text-white" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 37.5c0-13.8 11.2-25 25-25s25 11.2 25 25v25H25v-25z" fill="#F24E1E"/>
+            <path d="M25 87.5c0-13.8 11.2-25 25-25s25 11.2 25 25v25H25v-25z" fill="#A259FF"/>
+            <path d="M50 137.5c-13.8 0-25-11.2-25-25s11.2-25 25-25 25 11.2 25 25-11.2 25-25 25z" fill="#0acf83"/>
+            <path d="M50 87.5c0-13.8 11.2-25 25-25s25 11.2 25 25s-11.2 25-25 25s-25-11.2-25-25z" fill="#1abcfe"/>
+            <path d="M50 37.5c0 13.8 11.2 25 25 25s25-11.2 25-25s-11.2-25-25-25s-25 11.2-25 25z" fill="#ff7262"/>
+          </svg>
+          <span class="ml-2 font-semibold text-sm tracking-wider text-zinc-300">FIGMA</span>
+        </div>
+
+        <!-- Webflow Logo -->
+        <div class="h-8 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105" title="Webflow">
+          <svg class="h-6 text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M91.8 16.5H74.3L61.6 57.8 49 16.5H31.5L18.8 57.8 8.2 22.1H0v61.4h15.9V45.2l9.9 33.1h15.4L51 45.2l9.9 33.1h15.4l15.5-61.8z" fill="#4353FF"/>
+          </svg>
+          <span class="ml-2 font-semibold text-sm tracking-wider text-zinc-300">WEBFLOW</span>
+        </div>
+
+        <!-- Adobe Logo -->
+        <div class="h-8 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105" title="Adobe Creative Cloud">
+          <svg class="h-6 text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60.6 15H100v70H60.6zM39.4 15H0v70H39.4zM50 40 L69 85 H59 L54 71 H46 L41 85 H31 Z" fill="#FF0000"/>
+          </svg>
+          <span class="ml-2 font-semibold text-sm tracking-wider text-zinc-300">ADOBE CC</span>
+        </div>
+
+        <!-- Stripe Logo -->
+        <div class="h-8 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105" title="Stripe">
+          <svg class="h-6 text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M51 24.2c0-3.3 2.5-4.7 6.4-4.7 5.1 0 11.2 1.6 15.6 4.1V9.2C68.3 7 62 5.9 56.6 5.9c-14.7 0-24.3 7.8-24.3 20.8 0 20.2 27.6 16.9 27.6 25.6 0 3.7-3.1 5.1-7.5 5.1-6.1 0-13-2.3-18.1-5.3V67c5.8 2.5 12.8 3.8 18.2 3.8 14.8 0 24.9-7.4 24.9-20.7-.1-20.9-27.4-17.1-27.4-25.9z" fill="#635BFF"/>
+          </svg>
+          <span class="ml-2 font-semibold text-sm tracking-wider text-zinc-300">STRIPE</span>
+        </div>
+
+        <!-- Spline Logo -->
+        <div class="h-8 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105" title="Spline 3D">
+          <svg class="h-6 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="40" stroke="#f97316" stroke-width="12" fill="none"/>
+            <circle cx="50" cy="50" r="15" fill="#f97316"/>
+          </svg>
+          <span class="ml-2 font-semibold text-sm tracking-wider text-zinc-300">SPLINE 3D</span>
+        </div>
+
+        <!-- Vercel Logo -->
+        <div class="h-8 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105" title="Vercel">
+          <svg class="h-5 text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 15 L90 85 L10 85 Z" fill="#ffffff"/>
+          </svg>
+          <span class="ml-2 font-semibold text-sm tracking-wider text-zinc-300">VERCEL</span>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -367,18 +435,18 @@
     </div>
   </section>
 
-  <!-- ABOUT & METODOLOGIA / PROCESSO -->
-  <section id="about" class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-zinc-900" aria-label="Su di me">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+  <!-- ABOUT & METODOLOGIA / PROCESSO (Warm Soft Cream backdrop with content header zones per DESIGN.md) -->
+  <section id="about" class="w-full bg-[#f5f5f0] py-32 text-[#1a1a2e]" aria-label="Su di me">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
       <!-- Column left (Sticky about description) -->
       <div class="lg:col-span-5 space-y-10 lg:sticky lg:top-32 self-start">
         <div class="space-y-4">
-          <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">CHI SONO</span>
-          <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">FILOSOFIA E DESIGN SYSTEM</h3>
+          <span class="text-xs font-semibold tracking-widest text-indigo-600 uppercase">CHI SONO</span>
+          <h3 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-[#1a1a2e] leading-tight letter-spacing-tight">FILOSOFIA E DESIGN SYSTEM</h3>
         </div>
 
-        <div class="space-y-6 text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+        <div class="space-y-6 text-[#4a5568] font-light text-base md:text-lg leading-relaxed">
           <p>
             Sono un progettista multidisciplinare con oltre 5 anni di esperienza nel dare forma a visioni digitali complesse. Credo che un ottimo design non debba essere solo esteticamente spettacolare, ma debba guidare l'utente senza sforzo alcuno.
           </p>
@@ -388,12 +456,12 @@
         </div>
 
         <!-- Social Quick Links -->
-        <div class="flex items-center space-x-6 pt-4">
-          <a href="#" class="text-sm font-semibold text-zinc-400 hover:text-white transition-colors duration-200">DRIBBBLE</a>
-          <span class="text-zinc-800">•</span>
-          <a href="#" class="text-sm font-semibold text-zinc-400 hover:text-white transition-colors duration-200">BEHANCE</a>
-          <span class="text-zinc-800">•</span>
-          <a href="#" class="text-sm font-semibold text-zinc-400 hover:text-white transition-colors duration-200">LINKEDIN</a>
+        <div class="flex items-center space-x-6 pt-4 text-indigo-600 font-semibold">
+          <a href="#" class="text-sm hover:text-indigo-800 transition-colors duration-200">DRIBBBLE</a>
+          <span class="text-zinc-300">•</span>
+          <a href="#" class="text-sm hover:text-indigo-800 transition-colors duration-200">BEHANCE</a>
+          <span class="text-zinc-300">•</span>
+          <a href="#" class="text-sm hover:text-indigo-800 transition-colors duration-200">LINKEDIN</a>
         </div>
       </div>
 
@@ -403,58 +471,58 @@
         <!-- Interactive methodology / Process -->
         <div id="process" class="space-y-12">
           <div class="space-y-2">
-            <span class="text-xs font-semibold tracking-widest text-orange-500 uppercase">IL MIO PROCESSO</span>
-            <h4 class="font-editorial text-3xl font-bold text-white">COME DIAMO VITA ALLE IDEE</h4>
+            <span class="text-xs font-semibold tracking-widest text-indigo-600 uppercase">IL MIO PROCESSO</span>
+            <h4 class="font-editorial text-3xl font-bold text-[#1a1a2e]">COME DIAMO VITA ALLE IDEE</h4>
           </div>
 
           <div class="grid grid-cols-1 gap-6">
 
-            <!-- Process step 1 -->
-            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+            <!-- Process step 1 (Indigo Card - color-coordinated) -->
+            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
-                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">01</span>
+                <span class="font-editorial text-3xl font-extrabold text-indigo-600 px-3 py-1 bg-indigo-600/10 rounded-xl">01</span>
                 <div class="space-y-2">
-                  <h5 class="text-xl font-bold text-white">Scoperta & Strategia</h5>
-                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                  <h5 class="text-xl font-bold text-indigo-600">Scoperta & Strategia</h5>
+                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
                     Comprendo a fondo il tuo business, i tuoi utenti e i tuoi obiettivi aziendali. Attraverso workshop, ricerche di mercato ed audit strutturo le basi del progetto.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Process step 2 -->
-            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+            <!-- Process step 2 (Coral Card - color-coordinated) -->
+            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
-                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">02</span>
+                <span class="font-editorial text-3xl font-extrabold text-coral px-3 py-1 bg-coral/10 rounded-xl">02</span>
                 <div class="space-y-2">
-                  <h5 class="text-xl font-bold text-white">Architettura dell'Informazione & UX</h5>
-                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                  <h5 class="text-xl font-bold text-coral">Architettura dell'Informazione & UX</h5>
+                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
                     Sviluppo wireframe interattivi e flussi utente volti a ottimizzare la navigabilità. Testo la logica del servizio prima di passare alla parte estetica.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Process step 3 -->
-            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+            <!-- Process step 3 (Emerald Card - color-coordinated) -->
+            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
-                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">03</span>
+                <span class="font-editorial text-3xl font-extrabold text-emerald px-3 py-1 bg-emerald/10 rounded-xl">03</span>
                 <div class="space-y-2">
-                  <h5 class="text-xl font-bold text-white">UI & Visual Identity d'Impatto</h5>
-                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                  <h5 class="text-xl font-bold text-emerald">UI & Visual Identity d'Impatto</h5>
+                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
                     Costruisco un linguaggio visivo unico e moderno basato su solide griglie editoriali, tipografia d'eccellenza, ed elementi 3D originali che riflettono la personalità del brand.
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- Process step 4 -->
-            <div class="process-card p-8 bg-zinc-950 border border-zinc-900 rounded-2xl group hover:bg-zinc-900/30">
+            <!-- Process step 4 (Purple Card - color-coordinated) -->
+            <div class="process-card p-8 bg-white border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-2xl group">
               <div class="flex items-start gap-6">
-                <span class="font-editorial text-3xl font-extrabold text-orange-500/40 group-hover:text-orange-500 transition-colors duration-300">04</span>
+                <span class="font-editorial text-3xl font-extrabold text-purple-600 px-3 py-1 bg-purple-600/10 rounded-xl">04</span>
                 <div class="space-y-2">
-                  <h5 class="text-xl font-bold text-white">Prototipazione & Design System</h5>
-                  <p class="text-zinc-400 font-light text-sm leading-relaxed">
+                  <h5 class="text-xl font-bold text-purple-600">Prototipazione & Design System</h5>
+                  <p class="text-[#4a5568] font-light text-sm leading-relaxed">
                     Creo prototipi ad alta fedeltà pronti per essere testati e fornisco un Design System atomico ordinato per consentire un passaggio fluido agli sviluppatori.
                   </p>
                 </div>
@@ -465,42 +533,42 @@
         </div>
 
         <!-- Tech Stack & Tools Section -->
-        <div class="space-y-8 pt-10 border-t border-zinc-900">
+        <div class="space-y-8 pt-10 border-t border-slate-200">
           <div class="space-y-2">
-            <span class="text-xs font-semibold tracking-widest text-zinc-500 uppercase">TECNOLOGIE & COMPETENZE</span>
-            <h4 class="font-editorial text-3xl font-bold text-white">STRUMENTI & SOFTWARE DI ELEZIONE</h4>
+            <span class="text-xs font-semibold tracking-widest text-slate-500 uppercase">TECNOLOGIE & COMPETENZE</span>
+            <h4 class="font-editorial text-3xl font-bold text-[#1a1a2e]">STRUMENTI & SOFTWARE DI ELEZIONE</h4>
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
-              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-zinc-300">Figma Mastery</span>
+            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-slate-700">Figma Mastery</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
-              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-zinc-300">Design Systems</span>
+            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-slate-700">Design Systems</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
-              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-zinc-300">Prototyping</span>
+            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-slate-700">Prototyping</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
-              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-zinc-300">Cinema 4D / 3D</span>
+            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-slate-700">Cinema 4D / 3D</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
-              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-zinc-300">After Effects</span>
+            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-slate-700">After Effects</span>
             </div>
             <!-- Tool Item -->
-            <div class="flex items-center space-x-3 bg-zinc-950 border border-zinc-900 p-4 rounded-xl">
-              <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-              <span class="text-sm font-semibold tracking-wide text-zinc-300">Tailwind & HTML</span>
+            <div class="flex items-center space-x-3 bg-white border border-slate-200/80 p-4 rounded-xl shadow-sm">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <span class="text-sm font-semibold tracking-wide text-slate-700">Tailwind & HTML</span>
             </div>
           </div>
         </div>
@@ -510,23 +578,23 @@
   </section>
 
   <!-- INTERACTIVE CALL TO ACTION / NEWSLETTER / COPY SECTION -->
-  <section class="bg-zinc-950 border-t border-b border-zinc-900 py-24 px-6 md:px-12 relative overflow-hidden" aria-label="Collabora">
-    <div class="absolute left-1/4 -top-20 w-80 h-80 bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
+  <section class="bg-[#0a0a0f] border-t border-b border-zinc-900/50 py-24 px-6 md:px-12 relative overflow-hidden" aria-label="Collabora">
+    <div class="absolute left-1/4 -top-20 w-80 h-80 bg-indigo-600/5 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
       <div class="space-y-6 max-w-2xl text-center lg:text-left">
-        <h4 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white">HAI UN'IDEA DA SVILUPPARE?</h4>
+        <h4 class="font-editorial text-4xl md:text-5xl font-bold tracking-tight text-white leading-none">HAI UN'IDEA DA SVILUPPARE?</h4>
         <p class="text-zinc-400 font-light text-base md:text-lg leading-relaxed">
           Che si tratti di lanciare una nuova applicazione da zero, ridefinire un design system complesso o collaborare su progetti di visual identity d'impatto, parliamone davanti a un caffè virtuale.
         </p>
       </div>
 
-      <!-- Quick Interactive Copy Box -->
-      <div class="bg-[#09090b] border border-zinc-800 p-6 md:p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6 w-full lg:max-w-md">
+      <!-- Quick Interactive Copy Box (Glass surface card per DESIGN.md) -->
+      <div class="bg-zinc-950/60 border border-zinc-900 backdrop-blur-md p-6 md:p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6 w-full lg:max-w-md">
         <div class="space-y-1 text-center sm:text-left">
           <span class="text-[10px] font-bold tracking-widest text-zinc-500 uppercase">METTITI IN CONTATTO</span>
           <p class="text-sm font-semibold text-white">hello@alessandrobottone.it</p>
         </div>
-        <button id="copy-email-btn" class="w-full sm:w-auto ml-auto px-6 py-3 bg-white hover:bg-orange-500 text-black hover:text-white font-bold text-xs tracking-wider rounded-xl transition-colors duration-300 uppercase focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <button id="copy-email-btn" class="w-full sm:w-auto ml-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs tracking-wider rounded-xl transition-colors duration-300 uppercase focus:outline-none focus:ring-2 focus:ring-indigo-500">
           COPIA EMAIL
         </button>
       </div>
@@ -573,7 +641,7 @@
           <textarea id="message" name="message" rows="5" placeholder="Descrivi brevemente la tua idea, il budget indicativo e le tempistiche di consegna..." required class="editorial-input text-white text-base resize-none"></textarea>
         </div>
 
-        <button type="submit" class="magnetic-btn group px-8 py-4 bg-orange-500 text-white font-bold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto justify-center">
+        <button type="submit" class="magnetic-btn group px-8 py-4 bg-indigo-600 text-white font-bold text-sm tracking-wide rounded-full overflow-hidden inline-flex items-center space-x-3 hover:bg-indigo-700 transition-all duration-300 w-full sm:w-auto justify-center shadow-lg shadow-indigo-600/20">
           <span>INVIA MESSAGGIO</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -585,7 +653,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[#050507] border-t border-zinc-900 py-12 px-6 md:px-12 text-zinc-500">
+  <footer class="bg-[#0a0a0f] border-t border-zinc-900/50 py-12 px-6 md:px-12 text-zinc-500">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
       <!-- Logo branding footer -->

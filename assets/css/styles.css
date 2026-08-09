@@ -3,16 +3,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap');
 
 :root {
-  --color-bg: #09090b;
-  --color-bg-offset: #121214;
-  --color-text: #f4f4f5;
+  --color-bg: #0a0a0f; /* Deep Void per DESIGN.md */
+  --color-bg-offset: #14141d;
+  --color-text: #ffffff;
   --color-text-muted: #a1a1aa;
-  --color-accent: #f97316; /* Modern Tangerine */
-  --color-accent-rgb: 249, 115, 22;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #6366f1; /* Electric Indigo per DESIGN.md */
+  --color-accent-rgb: 99, 102, 241;
+  --color-coral: #f97316; /* Coral Warmth */
+  --color-cream: #f5f5f0; /* Soft Cream */
+  --color-border: rgba(255, 255, 255, 0.1);
   --font-editorial: 'Syne', sans-serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --cursor-size: 20px;
+
+  /* DESIGN.md Shadow Scale (Ambient Occlusion) */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-2: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-3: 0 4px 6px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.05);
+  --shadow-4: 0 10px 25px rgba(0,0,0,0.1), 0 8px 10px rgba(0,0,0,0.04);
+  --shadow-5: 0 20px 40px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.08);
 }
 
 /* Base Styles */
@@ -227,9 +236,10 @@ body {
   height: 100%;
 }
 
-/* Active Nav link underline */
+/* Active Nav link underline (Awwwards-style slide transition) */
 .nav-link {
   position: relative;
+  transition: color 200ms ease;
 }
 
 .nav-link::after {
@@ -237,14 +247,46 @@ body {
   position: absolute;
   bottom: -4px;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 1px;
-  background-color: var(--color-text);
-  transition: width 0.3s ease;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  transform: scaleX(1);
+}
+
+/* Glassmorphism Guidelines helper classes per DESIGN.md */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+}
+
+.glass-dark {
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+/* Support Level 2, 4, 5 shadows */
+.shadow-level-2 {
+  box-shadow: var(--shadow-2);
+}
+
+.shadow-level-4 {
+  box-shadow: var(--shadow-4);
+}
+
+.shadow-level-5 {
+  box-shadow: var(--shadow-5);
 }
 
 /* Magnet element effects and styling */

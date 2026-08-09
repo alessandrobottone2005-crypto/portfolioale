@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEmailCopy();
   initContactForm();
   initSmoothScroll();
+  initScrollHeader();
   initThreeJS();
   initGSAPAnimations();
 });
@@ -245,6 +246,26 @@ function initGSAPAnimations() {
       });
     });
   });
+}
+
+// Scroll-triggered header transition (Transparent -> Frosted Glass per DESIGN.md)
+function initScrollHeader() {
+  const header = document.getElementById('site-header');
+  if (!header) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      header.classList.remove('bg-transparent', 'border-transparent');
+      // Dynamic dark glassmorphism styling
+      header.classList.add('bg-zinc-950/80', 'backdrop-blur-md', 'border-b', 'border-zinc-900/80');
+    } else {
+      header.classList.add('bg-transparent', 'border-transparent');
+      header.classList.remove('bg-zinc-950/80', 'backdrop-blur-md', 'border-b', 'border-zinc-900/80');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Trigger initially
 }
 
 // Immersive 3D Constellation and Floating Geometry Background via Three.js
